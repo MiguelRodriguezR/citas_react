@@ -1,0 +1,23 @@
+.card-container{
+    border: solid 1px #a3a3a3;
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+}
+
+p{
+ margin: 2px;
+ padding: 0;
+}
+
+.delete{
+    margin-top: 20px;
+    background-color: crimson;
+    color: white;
+}
+
+.delete:hover{
+    color: white;
+}
