@@ -6,14 +6,14 @@ const Card = ({ appointment, deleteAppointment }) => {
   
 
   return (
-    <div className="card-container">
+    <div data-testid="appointment" className="card-container">
       {Object.keys(appointment).map((k) => k !== 'id' ? (
         <p>
           <strong>{k}: </strong>
           {appointment[k]}
         </p>
       ): null)}
-      <button onClick={()=>deleteAppointment(appointment)} className="button delete u-full-width">
+      <button data-testid="deleteBtn" onClick={()=>deleteAppointment(appointment)} className="button delete u-full-width">
         Delete &times;
       </button>
     </div>

@@ -30,7 +30,7 @@ function Main() {
     <div className="main">
       <Form addAppointment={addAppointment}></Form>
       <div className="cards-container">
-        <h3>{cardTitle}</h3>
+        <h3 data-testid="dinamicTitle">{cardTitle}</h3>
         {appointments.map((appointment) => (
           <Card
             key={appointment.id}

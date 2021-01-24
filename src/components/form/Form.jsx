@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { uuid } from "uuidv4";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const Form = ({ addAppointment }) => {
   const [appointment, updateAppointment] = useState({
@@ -10,7 +10,6 @@ const Form = ({ addAppointment }) => {
     hour: "",
     symptoms: "",
   });
-  
 
   const [error, showError] = useState({
     state: false,
@@ -57,10 +56,11 @@ const Form = ({ addAppointment }) => {
 
   return (
     <div className="form">
-      <h3>Create appointment</h3>
+      <h3 data-testid="title">Create appointment</h3>
       <form action="" onSubmit={submitAppointment}>
         <label htmlFor="">Pet Name</label>
         <input
+          data-testid="pet"
           type="text"
           name="pet"
           className="u-full-width"
@@ -70,6 +70,7 @@ const Form = ({ addAppointment }) => {
         />
         <label htmlFor="">Owner Name</label>
         <input
+          data-testid="owner"
           type="text"
           name="owner"
           className="u-full-width"
@@ -79,6 +80,7 @@ const Form = ({ addAppointment }) => {
         />
         <label htmlFor="">Appointment Date</label>
         <input
+        data-testid="date"
           type="date"
           onChange={handleChange}
           name="date"
@@ -87,6 +89,7 @@ const Form = ({ addAppointment }) => {
         />
         <label htmlFor="">Appointment Hour</label>
         <input
+        data-testid="time"
           type="time"
           onChange={handleChange}
           name="hour"
@@ -95,6 +98,7 @@ const Form = ({ addAppointment }) => {
         />
         <label htmlFor="">Synthoms</label>
         <textarea
+        data-testid="symptoms"
           name="symptoms"
           cols="30"
           rows="10"
@@ -103,18 +107,27 @@ const Form = ({ addAppointment }) => {
           value={symptoms}
         ></textarea>
 
-        <button type="submit" className="u-full-width button-primary">
+        <button
+          data-testid="submitButton"
+          type="submit"
+          className="u-full-width button-primary"
+        >
           make an appointment
         </button>
       </form>
-      {error.state ? <div className="error">{error.message}</div> : void 0}
+      {error.state ? (
+        <div data-testid="alert" className="error">
+          {error.message}
+        </div>
+      ) : (
+        void 0
+      )}
     </div>
   );
 };
 
-
 Form.propTypes = {
-  addAppointment: PropTypes.func
-}
+  addAppointment: PropTypes.func,
+};
 
 export default Form;
